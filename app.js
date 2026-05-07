@@ -57,11 +57,21 @@ async function menu() {
             }
         case "3":
             {
+                //tanyakan nama dan jumlah barang yang akan diupdate
                 const name = await ask("Nama: ")
                 const qty = Number(await ask("Qty: "))
+                //panggil semua data
+                const products = dataBase;
+                //cari index berdasarkan nama
+                const indexProduct = products.findIndex((product) => product.nama.toLocaleLowerCase().includes(name));
+                //jika tidak ketemu dengan index -1, infokan barang tidak ada dan jalankan break
+                if (indexProduct === -1) {
+                    console.log("Barang tidak ada!")
+                    break;
+                }
+                //jika ada update stok berdasarkan indexnya
 
-                const result = service.updateStock({ name, qty })
-                console.log("Updated:", result)
+                //simpan data difile
                 break;
             }
         case "4":

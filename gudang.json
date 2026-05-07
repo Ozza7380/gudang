@@ -3,5 +3,10 @@
     "nama": "barang",
     "kategori": "benda",
     "stok": 2
+  },
+  {
+    "nama": "teh botol",
+    "kategori": "minuman",
+    "stok": 4
   }
 ]
