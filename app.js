@@ -38,7 +38,7 @@ async function menu() {
         case "2":
             {
                 //input data
-                const id = (new Date()).toISOString()
+                const id = (new Date()).getTime()
                 const nama = await ask("Nama Barang: ");
                 const kategori = await ask("Kategori: ");
                 const stok = Number(await ask("Jumlah Stok: "));
