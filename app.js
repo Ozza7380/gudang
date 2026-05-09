@@ -1,6 +1,6 @@
 import { ask } from "./input.js";
 import { saveAll,findAll,dataBase  } from "./repository.js";
-
+import { tambahProduk } from "./menus/tambah.js";
 async function menu() {
 
     console.log(`
@@ -23,35 +23,8 @@ async function menu() {
                 break;
             }
         case "2":
-            {
-                //input data
-                const id = (new Date()).getTime()
-                const nama = await ask("Nama Barang: ");
-                const kategori = await ask("Kategori: ");
-                const harga = Number(await ask("Harga barang: "))
-                const stok = Number(await ask("Jumlah Stok: "));
-                //jika stok bukan angka tampilkan eror
-                if (!!stok) {
-                    //panggil seluruh data
-                const result = dataBase
-                //membuat object dari input
-                const newProduct = {
-                    id,
-                    nama,
-                    kategori,
-                    harga,
-                    stok
-                }
-                //tambahkan object baru dari seluruh data atau result
-                result.push(newProduct)
-                //simpan difile
-                saveAll(result)
-                console.log("Berhasil menambahkan produk!!")
-                } else {
-                    console.log("Stok harus angka!")
-                }
+            await tambahProduk(dataBase)
                 break;
-            }
         case "3":
             {
                 //tanyakan nama dan jumlah barang yang akan diupdate
