@@ -57,6 +57,7 @@ async function menu() {
                 result.push(newProduct)
                 //simpan difile
                 saveAll(result)
+                console.log("Berhasil menambahkan produk!!")
                 } else {
                     console.log("Stok harus angka!")
                 }
@@ -76,28 +77,45 @@ async function menu() {
                     console.log("Barang tidak ada!")
                     break;
                 }
-                //jika ada update stok berdasarkan indexnya
-                
+                //mengupdate stock
+                products[indexProduct].stok += qty
                 //simpan data difile
+                saveAll(products)
+                console.log("Berhasil update!!")
                 break;
             }
         case "4":
             {
-                const hapus = await ask("Nama barang yang akan dihapus: ")
-                    //   const terhapus = dataBase.find()
-                    ; break;
+                // input nama barang yang akan dihapus
+                const namaHapus = await ask("Nama barang yang akan dihapus: ")
+                //cari semua data
+                const products = dataBase;
+                //cari index berdasarkan nama
+                const indexProduct = products.findIndex((product) => product.nama.toLocaleLowerCase().includes(namaHapus))
+                // jika tidak ada tampilkan barang tidak ada
+                if (indexProduct === -1) {
+                    console.log("Barang tidak ada!")
+                    break;
+                }
+                //hapus barang
+                products.splice(indexProduct, 1)
+                //simpan 
+                saveAll(products)
+                console.log("Barang berhasil dihapus!")
+                break;
             }
         case "5":
             {
                 const keyword = await ask("Cari nama barang: ");
                 const hasil = dataBase.filter(b => b.nama.toLowerCase().includes(keyword.toLocaleLowerCase()));
+                console.table(hasil)
                 break;
             }
 
         case "0":
             {
                 console.log("Terimakasih!");
-                process.exit;
+                process.exit();
                 break;
             }
         default:
