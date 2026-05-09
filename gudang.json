@@ -8,5 +8,17 @@
     "nama": "teh botol",
     "kategori": "minuman",
     "stok": 4
+  },
+  {
+    "id": "2026-05-09T04:22:10.091Z",
+    "nama": "meja",
+    "kategori": "perabotan",
+    "stok": null
+  },
+  {
+    "id": "2026-05-09T04:26:07.979Z",
+    "nama": "pensil",
+    "kategori": "alat tulis",
+    "stok": 2
   }
 ]

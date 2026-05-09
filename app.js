@@ -13,8 +13,8 @@ export function updateStock({ nama, qty }) {
     const product = products.find(p => p.nama == nama);
 }
 
-export function findById(id) {
-    return findAll().find(p => p.id == id);
+export function findByName(name) {
+    return findAll().find(p => p.name == name);
 }
 async function menu() {
     const dataBase = readJSON(`gudang.json`);
@@ -38,13 +38,17 @@ async function menu() {
         case "2":
             {
                 //input data
+                const id = (new Date()).toISOString()
                 const nama = await ask("Nama Barang: ");
                 const kategori = await ask("Kategori: ");
                 const stok = Number(await ask("Jumlah Stok: "));
-                //panggil seluruh data
+                //jika stok bukan angka tampilkan eror
+                if (!!stok) {
+                    //panggil seluruh data
                 const result = dataBase
                 //membuat object dari input
                 const newProduct = {
+                    id,
                     nama,
                     kategori,
                     stok
@@ -53,6 +57,9 @@ async function menu() {
                 result.push(newProduct)
                 //simpan difile
                 saveAll(result)
+                } else {
+                    console.log("Stok harus angka!")
+                }
                 break;
             }
         case "3":
@@ -70,7 +77,7 @@ async function menu() {
                     break;
                 }
                 //jika ada update stok berdasarkan indexnya
-
+                
                 //simpan data difile
                 break;
             }
