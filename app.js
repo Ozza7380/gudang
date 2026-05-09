@@ -1,23 +1,7 @@
 import { ask } from "./input.js";
-import { readJSON, writeJSON } from "./storage.js";
-const PATH = "gudang.json"
-export function findAll() {
-    return readJSON(PATH);
-}
+import { saveAll,findAll,dataBase  } from "./repository.js";
 
-export function saveAll(products) {
-    writeJSON(PATH, products)
-}
-export function updateStock({ nama, qty }) {
-    const products = repo.findAll()
-    const product = products.find(p => p.nama == nama);
-}
-
-export function findByName(name) {
-    return findAll().find(p => p.name == name);
-}
 async function menu() {
-    const dataBase = readJSON(`gudang.json`);
 
     console.log(`
         === MENU GUDANG ===
@@ -26,6 +10,9 @@ async function menu() {
         3. Update stok
         4. Hapus Barang
         5. Cari Barang
+        6. Update Harga
+        7. Update Nama
+        8. Update Kategori
         0. Keluar`);
     const pilihan = await ask("Pilih menu (1-6): ");
 
@@ -41,6 +28,7 @@ async function menu() {
                 const id = (new Date()).getTime()
                 const nama = await ask("Nama Barang: ");
                 const kategori = await ask("Kategori: ");
+                const harga = Number(await ask("Harga barang: "))
                 const stok = Number(await ask("Jumlah Stok: "));
                 //jika stok bukan angka tampilkan eror
                 if (!!stok) {
@@ -51,6 +39,7 @@ async function menu() {
                     id,
                     nama,
                     kategori,
+                    harga,
                     stok
                 }
                 //tambahkan object baru dari seluruh data atau result

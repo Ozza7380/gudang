@@ -1,14 +1,27 @@
 [
   {
-    "id": "2026-05-09T04:26:07.979Z",
-    "nama": "pensil",
-    "kategori": "alat tulis",
-    "stok": 2
-  },
-  {
-    "id": "2026-05-09T04:45:30.268Z",
-    "nama": "meja",
+    "id": 1778302452341,
+    "nama": "kursi",
     "kategori": "perabotan",
     "stok": 5
+  },
+  {
+    "id": 1778302511727,
+    "nama": "meja",
+    "kategori": "perabotan",
+    "stok": 10
+  },
+  {
+    "id": 1778302550681,
+    "nama": "kasur",
+    "kategori": "perabotan",
+    "stok": 7
+  },
+  {
+    "id": 1778302745411,
+    "nama": "laptop",
+    "kategori": "elektronik",
+    "harga": 30000,
+    "stok": 10
   }
 ]
