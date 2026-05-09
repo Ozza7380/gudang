@@ -10,9 +10,9 @@ async function menu() {
         3. Update stok
         4. Hapus Barang
         5. Cari Barang
-        6. Update Harga
-        7. Update Nama
-        8. Update Kategori
+        6. Update Harga (coming soon)
+        7. Update Nama  (coming soon)
+        8. Update Kategori (coming soon)
         0. Keluar`);
     const pilihan = await ask("Pilih menu (1-6): ");
 
